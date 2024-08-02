@@ -29,90 +29,7 @@
             padding: 4px;
         }
     </style>
-    <script>
-        // Data structure containing information about each country
-        const countryData = {
-            'at': { name: 'Austria', no_of_connected_consumers: '4924134', no_of_dsos: '124', len_of_dso_grid_km: '234477', no_of_smart_meters_deployed_per: '68.4%', conncentration_of_dsos: 'low', fill: '#ffcc00' },
-            'be': { name: 'Belgium', no_of_connected_consumers: '6325254', no_of_dsos: '16', len_of_dso_grid_km: '212407', no_of_smart_meters_deployed_per: '22.4%', conncentration_of_dsos: 'low' },
-            'bg': { name: 'Bulgaria', no_of_connected_consumers: '4476998', no_of_dsos: '4', len_of_dso_grid_km: '164270', no_of_smart_meters_deployed_per: '0%', conncentration_of_dsos: 'medium' },
-            'cy': { name: 'Cyprus', no_of_connected_consumers: '546500', no_of_dsos: '1', len_of_dso_grid_km: '27624', no_of_smart_meters_deployed_per: '0.50%', conncentration_of_dsos: 'very high ' },
-            'cz': { name: 'Czechia', no_of_connected_consumers: '6212841', no_of_dsos: '4 regional, 248 local', len_of_dso_grid_km: '247143', no_of_smart_meters_deployed_per: '1.2%', conncentration_of_dsos: 'medium' },
-            'dk': { name: 'Denmark', no_of_connected_consumers: '3200000', no_of_dsos: '38', len_of_dso_grid_km: '162639', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'low' },
-            'de': { name: 'Germany', no_of_connected_consumers: '52158600', no_of_dsos: '866', len_of_dso_grid_km: '2195600', no_of_smart_meters_deployed_per: '0.53%', conncentration_of_dsos: 'low' },
-            'ee': { name: 'Estonia', no_of_connected_consumers: '572652', no_of_dsos: '32', len_of_dso_grid_km: '65106', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'high' },
-            'gr': { name: 'Greece', no_of_connected_consumers: '7671461', no_of_dsos: '1', len_of_dso_grid_km: '245876', no_of_smart_meters_deployed_per: '5.9%', conncentration_of_dsos: 'very high ' },
-            'es': { name: 'Spain', no_of_connected_consumers: '29644508', no_of_dsos: '333', len_of_dso_grid_km: '787310', no_of_smart_meters_deployed_per: '99%', conncentration_of_dsos: 'medium' },
-            'fi': { name: 'Finland', no_of_connected_consumers: '3800000', no_of_dsos: '77', len_of_dso_grid_km: '421350', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'medium' },
-            'fr': { name: 'France', no_of_connected_consumers: '40200000', no_of_dsos: '138', len_of_dso_grid_km: '1482650', no_of_smart_meters_deployed_per: '92%', conncentration_of_dsos: 'high' },
-            'hr': { name: 'Croatia', no_of_connected_consumers: '2543982', no_of_dsos: '1', len_of_dso_grid_km: '143130', no_of_smart_meters_deployed_per: '26.50%', conncentration_of_dsos: 'very high ' },
-            'hu': { name: 'Hungary', no_of_connected_consumers: '7468883', no_of_dsos: '6', len_of_dso_grid_km: '165917', no_of_smart_meters_deployed_per: '7.3%', conncentration_of_dsos: 'medium' },
-            'ie': { name: 'Ireland', no_of_connected_consumers: '2418391', no_of_dsos: '1', len_of_dso_grid_km: '170318', no_of_smart_meters_deployed_per: '65%', conncentration_of_dsos: 'very high ' },
-            'it': { name: 'Italy', no_of_connected_consumers: '37066287', no_of_dsos: '123', len_of_dso_grid_km: '1281547', no_of_smart_meters_deployed_per: '99%', conncentration_of_dsos: 'high ' },
-            'lt': { name: 'Lithuania', no_of_connected_consumers: '1850000', no_of_dsos: '5', len_of_dso_grid_km: '128977', no_of_smart_meters_deployed_per: '44.00%', conncentration_of_dsos: 'very high ' },
-            'lu': { name: 'Luxembourg', no_of_connected_consumers: '345126', no_of_dsos: '5', len_of_dso_grid_km: '13796', no_of_smart_meters_deployed_per: '98.98%', conncentration_of_dsos: 'high ' },
-            'lv': { name: 'Latvia', no_of_connected_consumers: '1117000', no_of_dsos: '10', len_of_dso_grid_km: '92323', no_of_smart_meters_deployed_per: '98%', conncentration_of_dsos: 'high ' },
-            'mt': { name: 'Malta', no_of_connected_consumers: '330000', no_of_dsos: '1', len_of_dso_grid_km: '0', no_of_smart_meters_deployed_per: '92%', conncentration_of_dsos: 'very high' },
-            'nl': { name: 'Netherlands', no_of_connected_consumers: '9020959', no_of_dsos: '6', len_of_dso_grid_km: '350000', no_of_smart_meters_deployed_per: '88%', conncentration_of_dsos: 'medium' },
-            'pl': { name: 'Poland', no_of_connected_consumers: '19050000', no_of_dsos: '231', len_of_dso_grid_km: '814770', no_of_smart_meters_deployed_per: '28.90%', conncentration_of_dsos: 'medium' },
-            'pt': { name: 'Portugal', no_of_connected_consumers: '6484419', no_of_dsos: '13', len_of_dso_grid_km: '234668', no_of_smart_meters_deployed_per: '90%', conncentration_of_dsos: 'high ' },
-            'ro': { name: 'Romania', no_of_connected_consumers: '9419751', no_of_dsos: '8', len_of_dso_grid_km: '502358', no_of_smart_meters_deployed_per: '23%', conncentration_of_dsos: 'medium' },
-            'se': { name: 'Sweden', no_of_connected_consumers: '5622298', no_of_dsos: '150', len_of_dso_grid_km: '556175', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'low' },
-            'si': { name: 'Slovenia', no_of_connected_consumers: '819646', no_of_dsos: '1', len_of_dso_grid_km: '64946', no_of_smart_meters_deployed_per: '91.8%', conncentration_of_dsos: 'very high ' },
-            'sk': { name: 'Slovakia', no_of_connected_consumers: '2678914', no_of_dsos: '146', len_of_dso_grid_km: '102384', no_of_smart_meters_deployed_per: '18.41%', conncentration_of_dsos: 'high ' }
 
-        };
-
-        Object.keys(countryData).forEach(key => {
-            const path = document.getElementById(key);
-            // Change the fill color of the path
-            if (path) {
-                path.style.fill = '#40e557';
-            } else {
-                console.error(`Path with ID '${key}' not found.`);
-            }
-        })
-
-        const infoBox = document.getElementById('country-info');
-
-        document.querySelectorAll('svg path').forEach(path => {
-            const countryId = path.id;
-            if (countryData[countryId]) {
-                // Add the 'highlight' class to countries listed in countryData
-                path.classList.add('highlight');
-
-                path.addEventListener('mouseenter', (event) => {
-                    const countryInfo = countryData[countryId];
-
-                    if (countryInfo) {
-                        // Create the table content dynamically
-
-                        infoBox.innerHTML = `
-                                <table>
-                                    <tr><th>Name:</th><td>${countryInfo.name}</td></tr>
-                                    <tr><th>Number of connected costumers:</th><td>${countryInfo.no_of_connected_consumers}</td></tr>
-                                    <tr><th>Number of DSOs:</th><td>${countryInfo.no_of_dsos}</td></tr>
-                                    <tr><th>Length of the distribution grid (in km):</th><td>${countryInfo.len_of_dso_grid_km}</td></tr>
-                                    <tr><th>Number (%) of smart meters deployed:</th><td>${countryInfo.no_of_smart_meters_deployed_per}</td></tr>
-                                    <tr><th>Concentration of DSOs:</th><td>${countryInfo.conncentration_of_dsos}</td></tr>
-                                </table>
-                            `;
-                        infoBox.style.display = 'block';
-                        infoBox.style.left = event.pageX + 'px';
-                        infoBox.style.top = event.pageY + 'px';
-                    }
-                });
-
-                path.addEventListener('mousemove', (event) => {
-                    infoBox.style.left = event.pageX + 'px';
-                    infoBox.style.top = event.pageY + 'px';
-                });
-
-                path.addEventListener('mouseleave', () => {
-                    infoBox.style.display = 'none';
-                });
-            }
-        });
-    </script>
 </head>
 
 <body>
@@ -466,7 +383,92 @@
 
     <!-- Placeholder for the dynamic information table -->
     <div id="country-info" class="country-info"></div>
+    <script>
+        // Data structure containing information about each country
+        const countryData = {
+            'at': { name: 'Austria', no_of_connected_consumers: '4924134', no_of_dsos: '124', len_of_dso_grid_km: '234477', no_of_smart_meters_deployed_per: '68.4%', conncentration_of_dsos: 'low', fill: '#ffcc00' },
+            'be': { name: 'Belgium', no_of_connected_consumers: '6325254', no_of_dsos: '16', len_of_dso_grid_km: '212407', no_of_smart_meters_deployed_per: '22.4%', conncentration_of_dsos: 'low' },
+            'bg': { name: 'Bulgaria', no_of_connected_consumers: '4476998', no_of_dsos: '4', len_of_dso_grid_km: '164270', no_of_smart_meters_deployed_per: '0%', conncentration_of_dsos: 'medium' },
+            'cy': { name: 'Cyprus', no_of_connected_consumers: '546500', no_of_dsos: '1', len_of_dso_grid_km: '27624', no_of_smart_meters_deployed_per: '0.50%', conncentration_of_dsos: 'very high ' },
+            'cz': { name: 'Czechia', no_of_connected_consumers: '6212841', no_of_dsos: '4 regional, 248 local', len_of_dso_grid_km: '247143', no_of_smart_meters_deployed_per: '1.2%', conncentration_of_dsos: 'medium' },
+            'dk': { name: 'Denmark', no_of_connected_consumers: '3200000', no_of_dsos: '38', len_of_dso_grid_km: '162639', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'low' },
+            'de': { name: 'Germany', no_of_connected_consumers: '52158600', no_of_dsos: '866', len_of_dso_grid_km: '2195600', no_of_smart_meters_deployed_per: '0.53%', conncentration_of_dsos: 'low' },
+            'ee': { name: 'Estonia', no_of_connected_consumers: '572652', no_of_dsos: '32', len_of_dso_grid_km: '65106', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'high' },
+            'gr': { name: 'Greece', no_of_connected_consumers: '7671461', no_of_dsos: '1', len_of_dso_grid_km: '245876', no_of_smart_meters_deployed_per: '5.9%', conncentration_of_dsos: 'very high ' },
+            'es': { name: 'Spain', no_of_connected_consumers: '29644508', no_of_dsos: '333', len_of_dso_grid_km: '787310', no_of_smart_meters_deployed_per: '99%', conncentration_of_dsos: 'medium' },
+            'fi': { name: 'Finland', no_of_connected_consumers: '3800000', no_of_dsos: '77', len_of_dso_grid_km: '421350', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'medium' },
+            'fr': { name: 'France', no_of_connected_consumers: '40200000', no_of_dsos: '138', len_of_dso_grid_km: '1482650', no_of_smart_meters_deployed_per: '92%', conncentration_of_dsos: 'high' },
+            'hr': { name: 'Croatia', no_of_connected_consumers: '2543982', no_of_dsos: '1', len_of_dso_grid_km: '143130', no_of_smart_meters_deployed_per: '26.50%', conncentration_of_dsos: 'very high ' },
+            'hu': { name: 'Hungary', no_of_connected_consumers: '7468883', no_of_dsos: '6', len_of_dso_grid_km: '165917', no_of_smart_meters_deployed_per: '7.3%', conncentration_of_dsos: 'medium' },
+            'ie': { name: 'Ireland', no_of_connected_consumers: '2418391', no_of_dsos: '1', len_of_dso_grid_km: '170318', no_of_smart_meters_deployed_per: '65%', conncentration_of_dsos: 'very high ' },
+            'it': { name: 'Italy', no_of_connected_consumers: '37066287', no_of_dsos: '123', len_of_dso_grid_km: '1281547', no_of_smart_meters_deployed_per: '99%', conncentration_of_dsos: 'high ' },
+            'lt': { name: 'Lithuania', no_of_connected_consumers: '1850000', no_of_dsos: '5', len_of_dso_grid_km: '128977', no_of_smart_meters_deployed_per: '44.00%', conncentration_of_dsos: 'very high ' },
+            'lu': { name: 'Luxembourg', no_of_connected_consumers: '345126', no_of_dsos: '5', len_of_dso_grid_km: '13796', no_of_smart_meters_deployed_per: '98.98%', conncentration_of_dsos: 'high ' },
+            'lv': { name: 'Latvia', no_of_connected_consumers: '1117000', no_of_dsos: '10', len_of_dso_grid_km: '92323', no_of_smart_meters_deployed_per: '98%', conncentration_of_dsos: 'high ' },
+            'mt': { name: 'Malta', no_of_connected_consumers: '330000', no_of_dsos: '1', len_of_dso_grid_km: '0', no_of_smart_meters_deployed_per: '92%', conncentration_of_dsos: 'very high' },
+            'nl': { name: 'Netherlands', no_of_connected_consumers: '9020959', no_of_dsos: '6', len_of_dso_grid_km: '350000', no_of_smart_meters_deployed_per: '88%', conncentration_of_dsos: 'medium' },
+            'pl': { name: 'Poland', no_of_connected_consumers: '19050000', no_of_dsos: '231', len_of_dso_grid_km: '814770', no_of_smart_meters_deployed_per: '28.90%', conncentration_of_dsos: 'medium' },
+            'pt': { name: 'Portugal', no_of_connected_consumers: '6484419', no_of_dsos: '13', len_of_dso_grid_km: '234668', no_of_smart_meters_deployed_per: '90%', conncentration_of_dsos: 'high ' },
+            'ro': { name: 'Romania', no_of_connected_consumers: '9419751', no_of_dsos: '8', len_of_dso_grid_km: '502358', no_of_smart_meters_deployed_per: '23%', conncentration_of_dsos: 'medium' },
+            'se': { name: 'Sweden', no_of_connected_consumers: '5622298', no_of_dsos: '150', len_of_dso_grid_km: '556175', no_of_smart_meters_deployed_per: '100%', conncentration_of_dsos: 'low' },
+            'si': { name: 'Slovenia', no_of_connected_consumers: '819646', no_of_dsos: '1', len_of_dso_grid_km: '64946', no_of_smart_meters_deployed_per: '91.8%', conncentration_of_dsos: 'very high ' },
+            'sk': { name: 'Slovakia', no_of_connected_consumers: '2678914', no_of_dsos: '146', len_of_dso_grid_km: '102384', no_of_smart_meters_deployed_per: '18.41%', conncentration_of_dsos: 'high ' }
 
+        };
+
+        Object.keys(countryData).forEach(key => {
+            const path = document.getElementById(key);
+            // Change the fill color of the path
+            if (path) {
+                path.style.fill = '#40e557';
+            } else {
+                console.error(`Path with ID '${key}' not found.`);
+            }
+        })
+
+        const infoBox = document.getElementById('country-info');
+
+        document.querySelectorAll('svg path').forEach(path => {
+            const countryId = path.id;
+            if (countryData[countryId]) {
+                // Add the 'highlight' class to countries listed in countryData
+                path.classList.add('highlight');
+
+                path.addEventListener('mouseenter', (event) => {
+                    const countryInfo = countryData[countryId];
+
+                    if (countryInfo) {
+                        // Create the table content dynamically
+
+                        infoBox.innerHTML = `
+                                <table>
+                                    <tr><th>Name:</th><td>${countryInfo.name}</td></tr>
+                                    <tr><th>Number of connected costumers:</th><td>${countryInfo.no_of_connected_consumers}</td></tr>
+                                    <tr><th>Number of DSOs:</th><td>${countryInfo.no_of_dsos}</td></tr>
+                                    <tr><th>Length of the distribution grid (in km):</th><td>${countryInfo.len_of_dso_grid_km}</td></tr>
+                                    <tr><th>Number (%) of smart meters deployed:</th><td>${countryInfo.no_of_smart_meters_deployed_per}</td></tr>
+                                    <tr><th>Concentration of DSOs:</th><td>${countryInfo.conncentration_of_dsos}</td></tr>
+                                </table>
+                            `;
+                        infoBox.style.display = 'block';
+                        infoBox.style.left = event.pageX + 'px';
+                        infoBox.style.top = event.pageY + 'px';
+                    }
+                });
+
+                path.addEventListener('mousemove', (event) => {
+                    infoBox.style.left = event.pageX + 'px';
+                    infoBox.style.top = event.pageY + 'px';
+                });
+
+                path.addEventListener('mouseleave', () => {
+                    infoBox.style.display = 'none';
+                });
+            }
+        
+
+        });
+    </script>
 
 </body>
 
